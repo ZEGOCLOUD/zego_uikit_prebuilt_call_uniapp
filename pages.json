@@ -7,6 +7,12 @@
 		    }
 		},
 		{
+			"path": "pages/quick/index",
+			"style": {
+				"navigationBarTitleText": "快速接入"
+			}
+		},
+		{
 		    "path": "pages/base-call/index",
 		    "style": {
 		        "navigationBarTitleText": "基础通话"

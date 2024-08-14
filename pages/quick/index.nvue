@@ -1,0 +1,31 @@
+<template>
+    <ZegoUIKitPrebuiltCall
+        :appID="appID"
+        :callID="callID"
+        :appSign="appSign"
+        :userID="userID"
+        :userName="userName"
+        :config="config"
+    />
+</template>
+
+<script lang="ts" setup>
+import { ref } from "vue"
+import keyCenter from "@/common/KeyCenter";
+import ZegoUIKitPrebuiltCall from "@/uni_modules/zego-PrebuiltCall/components/ZegoUIKitPrebuiltCall.nvue"
+import { ZegoUIKitPrebuiltCallConfig } from "@/uni_modules/zego-PrebuiltCall"
+
+const appID = ref(keyCenter.getAppID());
+const appSign = ref(keyCenter.getAppSign());
+const userID = ref(keyCenter.getUserID());
+const userName = ref(keyCenter.getUserID() + '_Nick');
+const callID = ref(keyCenter.getCallID());
+
+const config: ZegoUIKitPrebuiltCallConfig = {
+    ...ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall() // 预设配置
+    // 其他配置
+}
+</script>
+
+<style lang="scss" scoped>
+</style>

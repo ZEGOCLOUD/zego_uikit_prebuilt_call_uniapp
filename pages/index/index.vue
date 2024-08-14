@@ -22,6 +22,10 @@ const list = [
 		section: "快速开始",
 		rows: [
 			{
+				name: "快速接入",
+				url: "/pages/quick/index",
+			},
+			{
 				name: "基础通话",
 				url: "/pages/base-call/index",
 			},
