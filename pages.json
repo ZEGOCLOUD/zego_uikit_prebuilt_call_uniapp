@@ -1,0 +1,47 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+		    "path": "pages/index/index",
+		    "style": {
+		        "navigationBarTitleText": "UIKit Demo"
+		    }
+		},
+		{
+		    "path": "pages/base-call/index",
+		    "style": {
+		        "navigationBarTitleText": "基础通话"
+		    }
+		},
+		{
+		    "path": "pages/custom-bottombar/index",
+		    "style": {
+		        "navigationBarTitleText": "自定义下方按钮"
+		    }
+		},
+		{
+		    "path": "pages/custom-callview/index",
+		    "style": {
+		        "navigationBarTitleText": "自定义通话视图"
+		    }
+		},
+		{
+		    "path": "pages/hangup-comfirm/index",
+		    "style": {
+		        "navigationBarTitleText": "自定义挂断弹窗"
+		    }
+		},
+		{
+		    "path": "pages/setting/index",
+		    "style": {
+		        "navigationBarTitleText": "配置"
+		    }
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

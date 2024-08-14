@@ -1,0 +1,119 @@
+<template>
+	<div class="zego-container">
+		<view class="zego-row-area-2">
+			<text class="zego-title-text">AppID</text>
+			<input class="zego-input" type="number" maxlength="-1" :value="appID" @input="bindAppIDChange" />
+		</view>
+		<view class="zego-row-area-2">
+			<text class="zego-title-text">UserID</text>
+			<input class="zego-input" maxlength="-1" :value="userID" @input="bindUserIDChange" />
+		</view>
+		<view class="zego-row-area-2">
+			<text class="zego-title-text">Token</text>
+			<input class="zego-input" maxlength="-1" :value="token" @input="bindTokenChange" />
+		</view>
+		<view class="zego-row-area-2">
+			<text class="zego-title-text">CallID</text>
+			<input class="zego-input" maxlength="-1" :value="callID" @input="bindCallIDChange" />
+		</view>
+		<text style="font-size: 28rpx;font-weight: bold;margin: 12rpx">Version</text>
+		<view class="zego-row-area">
+			<text class="zego-title-text">{{ uikitSdkVersion }}</text>
+		</view>
+		<view class="zego-row-area">
+			<text class="zego-title-text">{{ uikitPrebuiltSdkVersion }}</text>
+		</view>
+		<view class="zego-row-area">
+			<text class="zego-title-text">{{ demoVersion }}</text>
+		</view>
+	</div>
+</template>
+
+<script lang="ts" setup>
+import { ref, onBeforeUnmount, onMounted, onUnmounted } from 'vue';
+import keyCenter from '@/common/KeyCenter.js';
+import ZegoUIKitInfo from '@/uni_modules/zego-UIKitCore/package.json'
+import ZegoPrebuiltCallInfo from '@/uni_modules/zego-PrebuiltCall/package.json'
+
+const coreVersion = ZegoUIKitInfo.version;
+const prebuiltVersion = ZegoPrebuiltCallInfo.version;
+
+const appID = ref(keyCenter.getAppID());
+const userID = ref(keyCenter.getUserID());
+const token = ref(keyCenter.getToken());
+const callID = ref(keyCenter.getCallID());
+const uikitSdkVersion = ref<string>();
+const uikitPrebuiltSdkVersion = ref<string>();
+const demoVersion = ref<string>();
+
+const bindAppIDChange = (e) => {
+	keyCenter.setAppID(e.detail.value);
+};
+
+const bindUserIDChange = (e) => {
+	keyCenter.setUserID(e.detail.value);
+};
+
+const bindTokenChange = (e) => {
+	keyCenter.setToken(e.detail.value);
+};
+
+const bindCallIDChange = (e) => {
+	keyCenter.setCallID(e.detail.value);
+};
+
+onMounted(() => {
+	uikitSdkVersion.value = "uikit-core SDK Version: " + coreVersion;
+	uikitPrebuiltSdkVersion.value = "uikit-prebuilt SDK Version: " + prebuiltVersion;
+	demoVersion.value = "Demo Version: " + plus.runtime.version;
+});
+
+onBeforeUnmount(() => {
+	console.log('onBeforeUnmount');
+});
+
+onUnmounted(() => {
+	console.log('onUnmounted');
+});
+</script>
+
+<style lang="scss" scoped>
+.zego-container {
+	background-color: #F4F4F4;
+}
+
+.zego-row-area {
+	flex-direction: row;
+	margin-left: 36.53rpx;
+	margin-right: 36.53rpx;
+	margin-top: 17.3rpx;
+	margin-bottom: 17.3rpx;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.zego-row-area-2 {
+	margin-left: 36.53rpx;
+	margin-right: 36.53rpx;
+	margin-top: 17.3rpx;
+	margin-bottom: 17.3rpx;
+}
+
+.zego-input {
+	background-color: #FFFFFF;
+	border-radius: 9.61rpx;
+	border-color: #BBBBBB;
+	border-width: 1.92rpx;
+	border-style: solid;
+	color: #101010;
+	font-size: 26.92rpx;
+	height: 46.15rpx;
+	padding-left: 9.61rpx;
+}
+
+
+.zego-title-text {
+	color: #101010;
+	font-size: 26.92rpx;
+}
+</style>
