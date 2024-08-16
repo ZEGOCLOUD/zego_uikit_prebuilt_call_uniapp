@@ -41,6 +41,14 @@ const list = [
 				name: "自定义下方按钮",
 				url: "/pages/custom-bottombar/index",
 			},
+			{
+				name: "视频通话",
+				url: "/pages/video-call/index",
+			},
+			{
+				name: "语音通话",
+				url: "/pages/voice-call/index",
+			},
 		],
 	},
 	{

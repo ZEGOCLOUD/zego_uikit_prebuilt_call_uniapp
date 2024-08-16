@@ -41,6 +41,18 @@
 		    "style": {
 		        "navigationBarTitleText": "配置"
 		    }
+		},
+		{
+		    "path": "pages/video-call/index",
+		    "style": {
+		        "navigationBarTitleText": "视频通话"
+		    }
+		},
+		{
+		    "path": "pages/voice-call/index",
+		    "style": {
+		        "navigationBarTitleText": "语音通话"
+		    }
 		}
 	],
 	"globalStyle": {
