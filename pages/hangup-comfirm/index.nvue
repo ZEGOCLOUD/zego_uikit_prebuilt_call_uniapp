@@ -8,7 +8,7 @@
 import { ref } from "vue"
 import keyCenter from "@/common/KeyCenter";
 import ZegoUIKitPrebuiltCall from "@/uni_modules/zego-PrebuiltCall/components/ZegoUIKitPrebuiltCall.nvue"
-import { ZegoUIKitPrebuiltCallConfig } from "@/uni_modules/zego-PrebuiltCall"
+import { ZegoUIKitPrebuiltCallConfig, ZegoMenuBarButtonName } from "@/uni_modules/zego-PrebuiltCall"
 
 const appID = ref(keyCenter.getAppID());
 const appSign = ref(keyCenter.getAppSign());
@@ -47,6 +47,16 @@ const config: ZegoUIKitPrebuiltCallConfig = {
                 }
             });
         });
+    },
+    bottomMenuBarConfig: {
+        buttons: [
+            ZegoMenuBarButtonName.ToggleCameraButton,
+            ZegoMenuBarButtonName.SwitchCameraButton,
+            ZegoMenuBarButtonName.HangUpButton,
+            ZegoMenuBarButtonName.ToggleMicrophoneButton,
+            ZegoMenuBarButtonName.SwitchAudioOutputButton,
+        ],
+        hideAutomatically: false,  // 不要自动隐藏
     },
     onHangUp: () => {
         // 挂断后返回上一页

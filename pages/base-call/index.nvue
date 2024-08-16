@@ -8,7 +8,7 @@
 import { ref } from "vue"
 import keyCenter from "@/common/KeyCenter";
 import ZegoUIKitPrebuiltCall from "@/uni_modules/zego-PrebuiltCall/components/ZegoUIKitPrebuiltCall.nvue"
-import { ZegoUIKitPrebuiltCallConfig } from "@/uni_modules/zego-PrebuiltCall"
+import { ZegoUIKitPrebuiltCallConfig, ZegoMenuBarButtonName } from "@/uni_modules/zego-PrebuiltCall"
 import { ZegoLayoutMode, ZegoViewPosition } from "@/uni_modules/zego-UIKitCore";
 
 const appID = ref(keyCenter.getAppID());
@@ -37,6 +37,16 @@ const config: ZegoUIKitPrebuiltCallConfig = {
             smallViewBackgroundColor: '#007fff', // 蓝色
             largeViewBackgroundColor: '#ff7b00', // 橙色
         }
+    },
+    bottomMenuBarConfig: {
+        buttons: [
+            ZegoMenuBarButtonName.ToggleCameraButton,
+            ZegoMenuBarButtonName.SwitchCameraButton,
+            ZegoMenuBarButtonName.HangUpButton,
+            ZegoMenuBarButtonName.ToggleMicrophoneButton,
+            ZegoMenuBarButtonName.SwitchAudioOutputButton,
+        ],
+        hideAutomatically: false,  // 不要自动隐藏
     },
     onHangUp: () => {
         // 挂断后返回上一页
