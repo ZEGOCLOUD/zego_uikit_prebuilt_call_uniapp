@@ -9,30 +9,35 @@
 		{
 			"path": "pages/quick/index",
 			"style": {
+				"disableSwipeBack": true,
 				"navigationBarTitleText": "快速接入"
 			}
 		},
 		{
 		    "path": "pages/base-call/index",
 		    "style": {
+				"disableSwipeBack": true,
 		        "navigationBarTitleText": "基础通话"
 		    }
 		},
 		{
 		    "path": "pages/custom-bottombar/index",
 		    "style": {
+				"disableSwipeBack": true,
 		        "navigationBarTitleText": "自定义下方按钮"
 		    }
 		},
 		{
 		    "path": "pages/custom-callview/index",
 		    "style": {
+				"disableSwipeBack": true,
 		        "navigationBarTitleText": "自定义通话视图"
 		    }
 		},
 		{
 		    "path": "pages/hangup-comfirm/index",
 		    "style": {
+				"disableSwipeBack": true,
 		        "navigationBarTitleText": "自定义挂断弹窗"
 		    }
 		},
@@ -45,12 +50,14 @@
 		{
 		    "path": "pages/video-call/index",
 		    "style": {
+				"disableSwipeBack": true,
 		        "navigationBarTitleText": "视频通话"
 		    }
 		},
 		{
 		    "path": "pages/voice-call/index",
 		    "style": {
+				"disableSwipeBack": true,
 		        "navigationBarTitleText": "语音通话"
 		    }
 		}

@@ -34,7 +34,7 @@ const config: ZegoUIKitPrebuiltCallConfig = {
             switchLargeOrSmallViewByClick: true, // 点击小图会交换大小视图的画面
             smallViewSize: { width: 100, height: 180 }, // 设置小视图的尺寸
             smallViewBackgroundColor: '#007fff', // 蓝色
-            largeViewBackgroundColor: '#ff7b00', // 橙色
+            largeViewBackgroundColor: '#0f7b00', // 橙色
         }
     },
     bottomMenuBarConfig: {

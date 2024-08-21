@@ -3,7 +3,7 @@
     "appid" : "__UNI__B384234",
     "description" : "",
     "versionName" : "1.0.0",
-    "versionCode" : 104,
+    "versionCode" : 106,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -89,15 +89,15 @@
         "nativePlugins" : {
             "zego-ZegoExpressUniAppSDK" : {
                 "__plugin_info__" : {
-                    "name" : "ZEGO 即构实时音视频 SDK",
-                    "description" : "uni-app Zego Express 音视频 SDK 是一款实时的音视频互动服务产品，是即构音视频解决方案在 uni-app 上的SDK，为开发者提供稳定可靠的实时音视频服务。",
+                    "name" : "ZegoExpress音视频SDK",
+                    "description" : "ZegoExpressUniApp插件，进入即构官网了解更多（https://doc-zh.zego.im/article/7775?source=dcloud）",
                     "platforms" : "Android,iOS",
-                    "url" : "https://ext.dcloud.net.cn/plugin?id=3617",
+                    "url" : "",
                     "android_package_name" : "im.zego.uikitcall.uniapp",
                     "ios_bundle_id" : "im.zego.uikitcall.uniapp",
-                    "isCloud" : true,
-                    "bought" : 1,
-                    "pid" : "3617",
+                    "isCloud" : false,
+                    "bought" : -1,
+                    "pid" : "",
                     "parameters" : {}
                 }
             }
