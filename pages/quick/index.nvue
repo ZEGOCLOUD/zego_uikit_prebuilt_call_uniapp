@@ -22,8 +22,12 @@ const userName = ref(keyCenter.getUserID() + '_Nick');
 const callID = ref(keyCenter.getCallID());
 
 const config: ZegoUIKitPrebuiltCallConfig = {
-    ...ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall() // 预设配置
+    ...ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall(), // 预设配置
     // 其他配置
+    onHangUp: () => {
+        // 挂断后返回上一页
+        uni.navigateBack()
+    },
 }
 </script>
 
