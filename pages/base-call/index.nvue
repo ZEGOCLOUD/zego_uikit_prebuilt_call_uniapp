@@ -8,7 +8,7 @@
 import { ref } from "vue"
 import keyCenter from "@/common/KeyCenter";
 import ZegoUIKitPrebuiltCall from "@/uni_modules/zego-PrebuiltCall/components/ZegoUIKitPrebuiltCall.nvue"
-import { ZegoUIKitPrebuiltCallConfig, ZegoMenuBarButtonName } from "@/uni_modules/zego-PrebuiltCall"
+import { ZegoUIKitPrebuiltCallConfig } from "@/uni_modules/zego-PrebuiltCall"
 import { ZegoLayoutMode, ZegoViewPosition } from "@/uni_modules/zego-UIKitCore";
 
 const appID = ref(keyCenter.getAppID());
@@ -25,9 +25,6 @@ const config: ZegoUIKitPrebuiltCallConfig = {
         showUserNameOnView: false, // 不要显示用户名
         showSoundWavesInAudioMode: false, // 关闭摄像头时, 头像四周不要显示声浪
     },
-    turnOnCameraWhenJoining: true,
-    turnOnMicrophoneWhenJoining: false,
-    useSpeakerWhenJoining: true,
     layout: {
         mode: ZegoLayoutMode.PictureInPicture, // 画中画布局
         config: {
@@ -38,19 +35,22 @@ const config: ZegoUIKitPrebuiltCallConfig = {
             largeViewBackgroundColor: '#ff7b00', // 橙色
         }
     },
-    bottomMenuBarConfig: {
-        buttons: [
-            ZegoMenuBarButtonName.ToggleCameraButton,
-            ZegoMenuBarButtonName.SwitchCameraButton,
-            ZegoMenuBarButtonName.HangUpButton,
-            ZegoMenuBarButtonName.ToggleMicrophoneButton,
-            ZegoMenuBarButtonName.SwitchAudioOutputButton,
-        ],
-        hideAutomatically: false,  // 不要自动隐藏
-    },
     onHangUp: () => {
         // 挂断后返回上一页
         uni.navigateBack()
+    },
+    onNetworkStatusChange: (res) => {
+        if (res.isConnected) {
+            uni.showToast({
+                title: '网络已恢复',
+                icon: 'none'
+            })
+        } else {
+            uni.showToast({
+                title: '网络已断开',
+                icon: 'none'
+            })
+        }
     },
 };
 </script>

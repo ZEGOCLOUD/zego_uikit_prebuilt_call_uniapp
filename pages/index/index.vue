@@ -4,7 +4,7 @@
             <uni-section :title="item.section"></uni-section>
             <view v-for="(row, index) in item.rows" :key="row.name">
                 <uni-list>
-                    <uni-list-item :title="row.name" :clickable="true" :to="row.url"></uni-list-item>
+                    <uni-list-item :title="row.name" :clickable="true" :to="row.url" :preCheck="preCheck"></uni-list-item>
                 </uni-list>
             </view>
         </view>
@@ -12,6 +12,8 @@
 </template>
 
 <script lang="ts" setup>
+import Permissions from "@/uni_modules/zego-PrebuiltCall/utils/Permissions";
+
 interface ShowItem {
 	title: string
 	url: string
@@ -62,8 +64,44 @@ const list = [
 	},
 ]
 
-const navigate = (item: ShowItem) => {
-	uni.navigateTo({ url: item.url })
+function getNetworkType() {
+	return new Promise((resolve, reject) => {
+		uni.getNetworkType({
+			success: function (res) {
+				resolve(res.networkType);
+			},
+			fail: function (err) {
+				reject(err);
+			}
+		})
+	})
+}
+
+async function permissionCheck() {
+	const appAuthorizeSetting = uni.getAppAuthorizeSetting();
+	if (appAuthorizeSetting.cameraAuthorized !== 'authorized' || appAuthorizeSetting.microphoneAuthorized !== 'authorized' ) {
+		return Promise.all([
+			Permissions.ensureAndroidPermission(Permissions.AuthInfo.Microphone),
+			Permissions.ensureAndroidPermission(Permissions.AuthInfo.Camera)
+		]).then(([micAuth, cameraAuth]) => {
+			return micAuth && cameraAuth
+		}).catch(err => {
+			return false
+		})
+	} else {
+		return true
+	}
+}
+
+async function preCheck() {
+	if (await this.getNetworkType() === 'none') {
+		uni.showToast({
+			title: '网络未连接',
+			icon: 'none'
+		})
+		return false
+	}
+	return this.permissionCheck()
 }
 </script>
 

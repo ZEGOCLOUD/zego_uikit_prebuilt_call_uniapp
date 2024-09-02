@@ -31,8 +31,21 @@ const config: ZegoUIKitPrebuiltCallConfig = {
         // 挂断后返回上一页
         uni.navigateBack()
     },
+    onNetworkStatusChange: (res) => {
+        if (res.isConnected) {
+            uni.showToast({
+                title: '网络已恢复',
+                icon: 'none'
+            })
+        } else {
+            uni.showToast({
+                title: '网络已断开',
+                icon: 'none'
+            })
+        }
+    },
 };
 
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
