@@ -48,6 +48,7 @@ yarn.lock
 
 # uniapp
 .hbuilderx
+nativeplugins
 unpackage
 uni_modules/zego-*
 KeyCenter.js

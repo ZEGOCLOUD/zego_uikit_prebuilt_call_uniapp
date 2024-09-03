@@ -12,13 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import Permissions from "@/uni_modules/zego-PrebuiltCall/utils/Permissions";
-
-interface ShowItem {
-	title: string
-	url: string
-}
-
 const list = [
 	{
 		section: "快速开始",
@@ -77,22 +70,6 @@ function getNetworkType() {
 	})
 }
 
-async function permissionCheck() {
-	const appAuthorizeSetting = uni.getAppAuthorizeSetting();
-	if (appAuthorizeSetting.cameraAuthorized !== 'authorized' || appAuthorizeSetting.microphoneAuthorized !== 'authorized' ) {
-		return Promise.all([
-			Permissions.ensureAndroidPermission(Permissions.AuthInfo.Microphone),
-			Permissions.ensureAndroidPermission(Permissions.AuthInfo.Camera)
-		]).then(([micAuth, cameraAuth]) => {
-			return micAuth && cameraAuth
-		}).catch(err => {
-			return false
-		})
-	} else {
-		return true
-	}
-}
-
 async function preCheck() {
 	if (await getNetworkType() === 'none') {
 		uni.showToast({
@@ -101,7 +78,7 @@ async function preCheck() {
 		})
 		return false
 	}
-	return permissionCheck()
+	return true
 }
 </script>
 
