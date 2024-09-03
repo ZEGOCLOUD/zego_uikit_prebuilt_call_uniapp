@@ -94,14 +94,14 @@ async function permissionCheck() {
 }
 
 async function preCheck() {
-	if (await this.getNetworkType() === 'none') {
+	if (await getNetworkType() === 'none') {
 		uni.showToast({
 			title: '网络未连接',
 			icon: 'none'
 		})
 		return false
 	}
-	return this.permissionCheck()
+	return permissionCheck()
 }
 </script>
 

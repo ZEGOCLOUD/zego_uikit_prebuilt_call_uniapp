@@ -107,6 +107,12 @@ export default {
 			type: [Boolean, String],
 			default: false
 		},
+		preCheck: {
+			type: Function,
+			default() {
+				return () => Promise.resolve(true)
+			}
+		},
 		to: {
 			type: String,
 			default: ''
@@ -192,7 +198,15 @@ export default {
 			}
 			return parent;
 		},
-		onClick() {
+		async onClick() {
+			let checkRes = false
+			try {
+				checkRes = await this.preCheck()
+			} catch (error) {
+				console.error(error)
+			}
+			console.log('checkRes', checkRes)
+			if (!checkRes) return
 			if (this.to !== '') {
 				this.openPage();
 				return;
