@@ -47,6 +47,15 @@ const list = [
 		],
 	},
 	{
+			section: "呼叫邀请",
+			rows: [
+					{
+							name: "呼叫邀请",
+							url: "/pages/invite/index",
+					},
+			],
+	},
+	{
 		section: "调试与配置",
 		rows: [
 			{

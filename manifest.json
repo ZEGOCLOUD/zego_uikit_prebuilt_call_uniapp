@@ -17,7 +17,9 @@
             "delay" : 0
         },
         /* 模块配置 */
-        "modules" : {},
+        "modules" : {
+            "Push" : {}
+        },
         /* 应用发布信息 */
         "distribute" : {
             /* android打包配置 */
@@ -39,7 +41,8 @@
                     "<uses-feature android:name=\"android.hardware.camera\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ],
-                "minSdkVersion" : 21
+                "minSdkVersion" : 23,
+                "targetSdkVersion" : 33
             },
             /* ios打包配置 */
             "ios" : {
@@ -51,7 +54,8 @@
             },
             /* SDK配置 */
             "sdkConfigs" : {
-                "ad" : {}
+                "ad" : {},
+                "push" : {}
             },
             "icons" : {
                 "android" : {
@@ -99,6 +103,47 @@
                     "bought" : 1,
                     "pid" : "3617",
                     "parameters" : {}
+                }
+            },
+            "zego-ZIMUniPlugin" : {
+                "__plugin_info__" : {
+                    "name" : "Zego ZIM 即时通讯 SDK",
+                    "description" : "Zego ZIM uni-app 原生插件",
+                    "platforms" : "Android,iOS",
+                    "url" : "https://ext.dcloud.net.cn/plugin?id=8601",
+                    "android_package_name" : "",
+                    "ios_bundle_id" : "",
+                    "isCloud" : true,
+                    "bought" : 1,
+                    "pid" : "8601",
+                    "parameters" : {}
+                }
+            },
+            "zego-ZPNsUniPlugin" : {
+                "com.vivo.push.app_id" : "",
+                "com.vivo.push.api_key" : "",
+                "__plugin_info__" : {
+                    "name" : "Zego ZPNs 离线推送 SDK",
+                    "description" : "Zego ZPNs uni-app 原生插件，需搭配 Zego ZIM 即时通讯 SDK 使用",
+                    "platforms" : "Android,iOS",
+                    "url" : "",
+                    "android_package_name" : "",
+                    "ios_bundle_id" : "",
+                    "isCloud" : false,
+                    "bought" : -1,
+                    "pid" : "",
+                    "parameters" : {
+                        "com.vivo.push.app_id" : {
+                            "des" : "VIVO 推送 app_id",
+                            "key" : "com.vivo.push.app_id",
+                            "value" : ""
+                        },
+                        "com.vivo.push.api_key" : {
+                            "des" : "VIVO 推送 api_key",
+                            "key" : "com.vivo.push.api_key",
+                            "value" : ""
+                        }
+                    }
                 }
             }
         }
