@@ -1,6 +1,6 @@
 <template>
   <view>
-      <div class="zego-container">
+      <view class="zego-container">
           <view class="zego-row-area-2">
               <text class="zego-title-text">我的ID: {{ userID }}</text>
               <text class="zego-title-text">我的Name: {{ userName }}</text>
@@ -54,7 +54,7 @@
                   <text class="clear-icon" @click="clearCallingInviteeID">x</text>
               </view>
           </view>
-      </div>
+      </view>
   </view>
 </template>
 <script lang="ts" setup>
@@ -322,6 +322,29 @@ const onPressed = (code: number, message: string) => {
 </script>
 
 <style scoped>
+.zego-container {
+	background-color: #F4F4F4;
+}
+
+.zego-row-area-2 {
+	margin-left: 36.53rpx;
+	margin-right: 36.53rpx;
+	margin-top: 17.3rpx;
+	margin-bottom: 17.3rpx;
+}
+
+.zego-input {
+	background-color: #FFFFFF;
+	border-radius: 9.61rpx;
+	border-color: #BBBBBB;
+	border-width: 1.92rpx;
+	border-style: solid;
+	color: #101010;
+	font-size: 26.92rpx;
+	height: 46.15rpx;
+	padding-left: 9.61rpx;
+}
+
 .invite-buttons {
   flex-direction: row;
   align-items: center;
