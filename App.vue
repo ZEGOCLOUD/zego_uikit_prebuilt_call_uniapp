@@ -1,13 +1,26 @@
 <script>
 	export default {
-		onLaunch: function() {
+		globalData: {
+			appID: "",
+			appSign: "",
+			userID: "",
+			token: "",
+			callID: "",
+			isHide: false,
+		},
+		onLaunch: function () {
 			console.log('App Launch')
 		},
-		onShow: function() {
+		onShow: function () {
 			console.log('App Show')
+			this.globalData.isHide = false
 		},
-		onHide: function() {
+		onHide: function () {
 			console.log('App Hide')
+			this.globalData.isHide = true
+		},
+		onError: function (e) {
+			console.error(`App Error: ${e.message || e}`, e.stack)
 		}
 	}
 </script>
